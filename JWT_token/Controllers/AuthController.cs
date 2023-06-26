@@ -21,7 +21,7 @@ namespace JWT_token.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<User>> Register(UserDTO request)
+        public ActionResult<User> Register(UserDTO request)
         {
 
             CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalt);
@@ -35,7 +35,7 @@ namespace JWT_token.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<string>> Login(UserDTO request)
+        public ActionResult<string> Login(UserDTO request)
         {
             if (user.Username != request.Username)
             {
